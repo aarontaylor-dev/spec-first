@@ -1,0 +1,25 @@
+{
+  "name": "speckit",
+  "version": "0.1.0",
+  "description": "A minimal starter for spec-first development",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "spec-first",
+    "bdd",
+    "tdd",
+    "gherkin",
+    "specification"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "vitest": "^2.0.0"
+  }
+}
