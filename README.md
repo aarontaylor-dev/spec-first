@@ -59,13 +59,13 @@ npm run test:watch
 
 ```mermaid
 flowchart LR
-    A[Problem] --> B[Scope]
-    B --> C[Domain]
-    C --> D[Behaviour]
-    D --> E[Tests]
-    E --> F[Code]
-    F --> G[Evolve]
-    G -.-> D
+  A[Problem] --> B[Scope]
+  B --> C[Domain]
+  C --> D[Behaviour]
+  D --> E[Tests]
+  E --> F[Code]
+  F --> G[Evolve]
+  G -.-> D
 ```
 
 1. **Problem** — What pain are we solving? (`spec/01-problem.md`)
@@ -149,6 +149,23 @@ Spec-first works well with AI coding assistants. The structured specs give the A
 The key is pointing the AI at your spec files so it understands the requirements before writing code.
 
 **More prompts:** See [AI_HELP.md](./AI_HELP.md) for a full list of copy-paste prompts.
+
+## Adapting Spec-First to Your Project
+
+### New project
+
+1. Use this template to create your repo
+2. Update `package.json` with your project name
+3. Fill out `spec/01-problem.md`, `spec/02-scope.md`, `spec/03-domain.md`
+4. Delete the Counter demo files (see below)
+5. Write your first `.feature` file and matching tests
+
+### Existing project
+
+1. Copy the `spec/` folder into your project
+2. Document current behaviour first—write specs for what already exists
+3. Add behaviour tests that mirror those specs
+4. Evolve incrementally—new features get specs before code
 
 ## Demo Feature
 
