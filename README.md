@@ -239,6 +239,10 @@ These are aspirational ideas, not yet implemented:
 - **Build verification** — Tooling to auto-check that tests cover all spec scenarios
 - **Richer AI integration** — Pre-built prompts or CLI commands for common spec tasks
 
+## Contributing
+
+Contributions welcome! See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
+
 ## License
 
 MIT
