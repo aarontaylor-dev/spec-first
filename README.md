@@ -148,6 +148,8 @@ Spec-first works well with AI coding assistants. The structured specs give the A
 
 The key is pointing the AI at your spec files so it understands the requirements before writing code.
 
+**More prompts:** See [AI_HELP.md](./AI_HELP.md) for a full list of copy-paste prompts.
+
 ## Demo Feature
 
 This template includes a **Counter** demo to show the workflow in action:
