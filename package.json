@@ -1,6 +1,6 @@
 {
   "name": "speckit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A minimal starter for spec-first development",
   "type": "module",
   "scripts": {

@@ -1,8 +1,8 @@
-# SpecKit
+# Spec-First
 
-A minimal, opinionated starter for **spec-first development**.
+A minimal starter for spec-first development.
 
-**Website**: [speckit.guide](https://speckit.guide) — cheat sheets, tutorials, and more.
+**Website**: [spec-first.com](https://spec-first.com) — cheat sheets, tutorials, and more.
 
 ## Why Spec-First?
 
@@ -32,7 +32,7 @@ npm test
 npm run test:watch
 ```
 
-**New to SpecKit?** Read [GETTING_STARTED.md](./GETTING_STARTED.md) for a step-by-step guide.
+**New to Spec-First?** Read [GETTING_STARTED.md](./GETTING_STARTED.md) for a step-by-step guide.
 
 ## The Workflow
 
@@ -142,7 +142,7 @@ Also remove the "Counter Demo" sections from the spec templates:
 
 ## Quick Reference
 
-Visit [speckit.guide](https://speckit.guide) for online cheat sheets and tutorials.
+Visit [spec-first.com](https://spec-first.com) for online cheat sheets and tutorials.
 
 The `cheat-sheets/` folder also has offline quick reference guides:
 
