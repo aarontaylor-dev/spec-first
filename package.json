@@ -1,8 +1,11 @@
 {
-  "name": "speckit",
+  "name": "spec-first",
   "version": "0.2.0",
   "description": "A minimal starter for spec-first development",
   "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",

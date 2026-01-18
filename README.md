@@ -202,6 +202,14 @@ The `cheat-sheets/` folder also has offline quick reference guides:
 - **Traceable** — Tests map directly to spec examples
 - **Minimal** — Only build what's specified
 
+## Roadmap
+
+These are aspirational ideas, not yet implemented:
+
+- **Design layer** — Add support for linking specs to UI mockups or wireframes
+- **Build verification** — Tooling to auto-check that tests cover all spec scenarios
+- **Richer AI integration** — Pre-built prompts or CLI commands for common spec tasks
+
 ## License
 
 MIT
