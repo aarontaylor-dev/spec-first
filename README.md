@@ -55,6 +55,10 @@ npm run test:watch
 
 **New to Spec-First?** Read [GETTING_STARTED.md](./GETTING_STARTED.md) for a step-by-step guide.
 
+### Tech Stack
+
+This template uses **Node.js**, **TypeScript**, and **Vitest** for testing. The `spec/` folder structure is language-agnostic—you can use the same approach with Python, Ruby, Go, or any other stack.
+
 ## The Workflow
 
 ```mermaid
