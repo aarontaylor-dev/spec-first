@@ -219,6 +219,14 @@ The `cheat-sheets/` folder also has offline quick reference guides:
 - **Traceable** — Tests map directly to spec examples
 - **Minimal** — Only build what's specified
 
+## Non-Goals
+
+- **Not a framework** — It's a folder structure and workflow, not code you import
+- **Not strict process** — Skip what doesn't help; adapt what does
+- **Not a PRD replacement** — Specs are for developers, not stakeholders
+- **Not tied to any AI vendor** — Works with Claude, ChatGPT, Cursor, or none
+- **Not for UI design** — This covers behaviour, not visual design
+
 ## Roadmap
 
 These are aspirational ideas, not yet implemented:
