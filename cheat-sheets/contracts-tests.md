@@ -1,37 +1,89 @@
 # Contracts & Tests
 
-## Behaviour Tests vs Unit Tests
+> **When to use this:** Reference this when deciding what tests to write, how to organize them, or when documenting API contracts.
 
-**Start with behaviour tests.** They're your primary tests because they directly verify your spec.
+## Key Ideas
+
+- Behaviour tests are your primary tests—they verify your spec
+- Unit tests are optional—use them for complex internal logic
+- API contracts document inputs, outputs, and errors
+- Test names should match scenario names exactly
+
+## Behaviour Tests vs Unit Tests
 
 | Test Type | Purpose | When to use |
 |-----------|---------|-------------|
-| **Behaviour** | Verify scenarios from `.feature` files | Always — these are your main tests |
-| **Unit** | Test internal logic in isolation | When you have complex internals |
+| **Behaviour** | Verify scenarios from `.feature` files | Always—these are your main tests |
+| **Unit** | Test internal logic in isolation | Only for complex internals |
 
 ### When to add unit tests
 
 Add unit tests when:
-- A function has complex logic worth testing in isolation
-- You want to test edge cases not covered by behaviour scenarios
-- You're building a utility/helper with many code paths
+- A function has complex logic worth testing alone
+- You need to test edge cases not in behaviour scenarios
+- You're building a utility with many code paths
 
-**Don't add unit tests** just to duplicate behaviour tests. If your behaviour tests cover the functionality, that's enough.
+**Don't** add unit tests just to duplicate behaviour tests.
 
 ### Example
 
-```
+```gherkin
 # Behaviour test covers the user-facing scenario
 Scenario: Apply 10% discount to cart over $100
   Given a cart with total $150
   When I apply the loyalty discount
   Then the total should be $135
+```
 
-# Unit test covers internal calculation edge cases
+```typescript
+// Unit tests cover internal calculation edge cases
 describe('calculateDiscount()', () => {
   it('rounds to 2 decimal places', () => {});
   it('returns 0 for totals under threshold', () => {});
   it('caps discount at maximum amount', () => {});
+});
+```
+
+---
+
+## Test Organization
+
+```
+tests/
+  behaviour/      # Primary: scenarios from .feature files
+  unit/           # Secondary: complex internal logic
+```
+
+## Test Naming
+
+```typescript
+// Behaviour tests — match scenario names exactly
+describe('Feature: Shopping Cart', () => {
+  it('Add item to empty cart', () => {});
+  it('Remove item from cart', () => {});
+});
+
+// Unit tests — describe the function/method
+describe('CartCalculator', () => {
+  describe('calculateTotal()', () => {
+    it('sums item prices', () => {});
+    it('applies tax rate', () => {});
+  });
+});
+```
+
+## Test Structure (Given-When-Then)
+
+```typescript
+it('Add item to empty cart', () => {
+  // Given an empty cart
+  const cart = new Cart();
+
+  // When I add "Socks" to the cart
+  cart.add({ name: 'Socks', price: 9.99 });
+
+  // Then the cart should contain 1 item
+  expect(cart.items).toHaveLength(1);
 });
 ```
 
@@ -50,11 +102,11 @@ describe('calculateDiscount()', () => {
 
 **Example:**
 ```markdown
-### `cart.addItem(item: Product, quantity: number): void`
+### `cart.addItem(product: Product, quantity: number): void`
 
 - **Input**: Product to add, quantity (positive integer)
 - **Output**: void (mutates cart state)
-- **Errors**: Throws if quantity < 1
+- **Errors**: Throws `InvalidQuantityError` if quantity < 1
 ```
 
 ---
@@ -70,44 +122,11 @@ describe('calculateDiscount()', () => {
 - **Consumers**: [who listens]
 ```
 
----
+**Example:**
+```markdown
+### `cart.itemAdded`
 
-## Test Organization
-
-```
-tests/
-  behaviour/      # Primary: scenarios from .feature files
-  unit/           # Secondary: complex internal logic
-```
-
-## Test Naming
-
-```typescript
-// Behaviour tests - match scenario names exactly
-describe('Feature: Counter', () => {
-  it('New counter starts at zero', () => {});
-  it('Increment increases the count by one', () => {});
-});
-
-// Unit tests - describe the function/method
-describe('Counter', () => {
-  describe('increment()', () => {
-    it('adds 1 to the current value', () => {});
-  });
-});
-```
-
-## Test Structure (AAA / Given-When-Then)
-
-```typescript
-it('Increment increases the count by one', () => {
-  // Arrange (Given)
-  const counter = new Counter();
-
-  // Act (When)
-  counter.increment();
-
-  // Assert (Then)
-  expect(counter.value).toBe(1);
-});
+- **Trigger**: When an item is added to the cart
+- **Payload**: `{ productId: string, quantity: number }`
+- **Consumers**: Analytics service, inventory tracker
 ```
