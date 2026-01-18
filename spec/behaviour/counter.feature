@@ -18,6 +18,11 @@ Feature: Counter
     When I increment the counter
     Then the counter value should be 6
 
+  Scenario: Increment by a specific amount
+    Given a counter with value 3
+    When I increment the counter by 7
+    Then the counter value should be 10
+
   Scenario: Decrement decreases the count by one
     Given a counter with value 5
     When I decrement the counter

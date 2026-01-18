@@ -39,6 +39,18 @@ describe('Feature: Counter', () => {
     expect(counter.value).toBe(6);
   });
 
+  it('Increment by a specific amount', () => {
+    // Given a counter with value 3
+    const counter = new Counter();
+    for (let i = 0; i < 3; i++) counter.increment();
+
+    // When I increment the counter by 7
+    counter.incrementBy(7);
+
+    // Then the counter value should be 10
+    expect(counter.value).toBe(10);
+  });
+
   it('Decrement decreases the count by one', () => {
     // Given a counter with value 5
     const counter = new Counter();

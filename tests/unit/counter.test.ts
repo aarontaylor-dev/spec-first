@@ -21,6 +21,20 @@ describe('Counter', () => {
     });
   });
 
+  describe('incrementBy()', () => {
+    it('adds the specified amount to the current value', () => {
+      const counter = new Counter();
+      counter.incrementBy(5);
+      expect(counter.value).toBe(5);
+    });
+
+    it('works with negative amounts', () => {
+      const counter = new Counter();
+      counter.incrementBy(-3);
+      expect(counter.value).toBe(-3);
+    });
+  });
+
   describe('decrement()', () => {
     it('subtracts 1 from the current value', () => {
       const counter = new Counter();

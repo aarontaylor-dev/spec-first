@@ -16,6 +16,10 @@ export class Counter {
     this._value += 1;
   }
 
+  incrementBy(amount: number): void {
+    this._value += amount;
+  }
+
   decrement(): void {
     this._value -= 1;
   }
