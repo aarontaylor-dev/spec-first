@@ -19,6 +19,27 @@ Most projects start with code and figure out requirements later. This leads to:
 - **Testability** — Behaviour examples translate directly to tests
 - **Simplicity** — You only build what's specified, nothing more
 
+## Who This Is For
+
+- **Solo devs and small teams** who want lightweight structure without heavy process
+- **People working with AI assistants** who need clear context to hand off to LLMs
+- **Anyone starting a new project** or refactoring an existing one into something maintainable
+
+## When to Use Spec-First
+
+- You're building something with multiple features or user-facing behaviour
+- You want tests that actually reflect what the system should do
+- You're collaborating with others (including AI) and need a shared source of truth
+- You've been burned by "just start coding" and want more discipline
+- You're refactoring legacy code and need to document what it *should* do
+
+## When Not to Use It
+
+- **Throwaway scripts** — If it's under 100 lines and you'll delete it next week, just write it
+- **Pure exploration** — When you're spiking or prototyping to learn, specs slow you down
+- **Design-only work** — If there's no code to write, you don't need this structure
+- **Heavily regulated environments** — You may need more formal documentation than this provides
+
 ## Quick Start
 
 ```bash
@@ -108,6 +129,24 @@ code --install-extension alexkrechik.cucumberautocomplete
 ```
 
 See `cheat-sheets/behaviour-gherkin.md` for full Gherkin syntax reference.
+
+## Using Spec-First with AI Assistants
+
+Spec-first works well with AI coding assistants. The structured specs give the AI clear context about what you're building.
+
+**Filling in spec files:**
+> "Read `spec/01-problem.md` and help me fill in the Problem Statement and Goals sections for a task management app."
+
+**Writing Gherkin from requirements:**
+> "Based on `spec/02-scope.md`, write a `.feature` file for the 'create task' behaviour. Include scenarios for success, validation errors, and duplicate names."
+
+**Generating tests from behaviour specs:**
+> "Read `spec/behaviour/tasks.feature` and create a matching test file at `tests/behaviour/tasks.behaviour.test.ts`. Mirror each scenario as a test case."
+
+**Implementing from specs:**
+> "Read the spec files in `spec/` and the tests in `tests/behaviour/tasks.behaviour.test.ts`. Implement the code to make the tests pass."
+
+The key is pointing the AI at your spec files so it understands the requirements before writing code.
 
 ## Demo Feature
 
